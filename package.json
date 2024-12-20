@@ -1,0 +1,14 @@
+{
+  "name": "mysql_curd",
+  "version": "1.0.0",
+  "description": "mysqk nodejs crud app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "naveen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
