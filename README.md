@@ -33,16 +33,27 @@ server.js
 
 ## Configuration
 
-1. Create a  file in the root directory and add your MySQL database credentials:
+1. Create a `.env` file in the root directory and add your MySQL database credentials:
     ```env
     PORT=8000
     DB_HOST=localhost
     DB_USER=root
-    DB_PASSWORD=Naveen@18
+    DB_PASSWORD=your_password_here
     DB_NAME=student_db
+    DB_SECRET=mysecretkey
     ```
 
-2. Update the database configuration in  if necessary.
+2. Update the database configuration in `studentController.js` if necessary.
+
+## Security
+
+To ensure your `.env` file is not exposed, add it to your `.gitignore` file:
+
+```gitignore
+.env
+```
+
+This will prevent the `.env` file from being committed to your version control system.
 
 ## Running the Application
 

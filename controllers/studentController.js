@@ -1,3 +1,4 @@
+require('dotenv').config();
 const db = require("../config/db");
 //get all students list
 const getStudents = async (req, res) => {
