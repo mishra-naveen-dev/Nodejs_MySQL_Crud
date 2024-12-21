@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const db = require("../config/db");
 //get all students list
 const getStudents = async (req, res) => {
@@ -74,7 +74,7 @@ const createStudent = async (req, res) => {
     // create data
     const data = await db.query(
       "INSERT INTO students  (name, roll_no, fees, medium) VALUES (?,?,?,?)",
-      [name, roll_no, fees,  medium]
+      [name, roll_no, fees, medium]
     );
     if (!data) {
       return res.status(400).send({
@@ -96,4 +96,41 @@ const createStudent = async (req, res) => {
     });
   }
 };
-module.exports = { getStudents, getStudentByID, createStudent };
+
+//update student
+const updateStudent = async (req, res) => {
+  try {
+    const studentID = req.params.id;
+    if (!studentID) {
+      return res.status(400).send({
+        success: false,
+        message: "Please provide student ID",
+      });
+    }
+    const { name, roll_no, fees, medium } = req.body;
+    const data = await db.query(
+      "UPDATE students SET name=?,roll_no=?,fees=?,medium=? WHERE id=?",
+      [name, roll_no, fees, medium, studentID]
+    );
+    if (!data) {
+      return res.status(400).send({
+        success: false,
+        message: "Error in Update Query",
+      });
+    }
+    res.status(200).send({
+      success: true,
+      message: "Student Updated Successfully",
+      
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in Update Student API",
+      error,
+    });
+  }
+};
+
+module.exports = { getStudents, getStudentByID, createStudent, updateStudent };

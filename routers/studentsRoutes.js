@@ -1,5 +1,10 @@
 const express = require("express");
-const { getStudents, getStudentByID,createStudent } = require("../controllers/studentController");
+const {
+  getStudents,
+  getStudentByID,
+  createStudent,
+  updateStudent,
+} = require("../controllers/studentController");
 
 //router object
 const router = express.Router();
@@ -9,10 +14,13 @@ const router = express.Router();
 //GET all students list || GET
 router.get("/getall", getStudents);
 
-//GET student by id 
-router.get('/get/:id',getStudentByID)
+//GET student by id
+router.get("/get/:id", getStudentByID);
 
 //create student || post
-router.post('/create',createStudent)
+router.post("/create", createStudent);
+
+//update student || put
+router.put("/update/:id", updateStudent);
 
 module.exports = router;
