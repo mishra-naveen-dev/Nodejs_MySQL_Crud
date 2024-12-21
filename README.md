@@ -64,31 +64,56 @@ npm start
 
 The server will run on http://localhost:8000.
 
-API Endpoints
-Students
-Get all students
+## API Endpoints
 
-URL: /api/v1/student/getall
-Method: GET
-Description: Retrieves a list of all students.
-Get student by ID
+### Students
 
-URL: /api/v1/student/get/:id
-Method: GET
-Description: Retrieves a student by their ID.
-Create a new student
+#### Get all students
 
-URL: /api/v1/student/create
-Method: POST
-Description: Creates a new student.
-Body Parameters:
-name (string): The name of the student.
-roll_no (string): The roll number of the student.
-fees (number): The fees of the student.
-medium (string): The medium of instruction.
-License
+- **URL:** `/api/v1/student/getall`
+- **Method:** `GET`
+- **Description:** Retrieves a list of all students.
+
+#### Get student by ID
+
+- **URL:** `/api/v1/student/get/:id`
+- **Method:** `GET`
+- **Description:** Retrieves a student by their ID.
+
+#### Create a new student
+
+- **URL:** `/api/v1/student/create`
+- **Method:** `POST`
+- **Description:** Creates a new student.
+- **Body Parameters:**
+  - `name` (string): The name of the student.
+  - `roll_no` (string): The roll number of the student.
+  - `fees` (number): The fees of the student.
+  - `medium` (string): The medium of instruction.
+
+#### Update a student
+
+- **URL:** `/api/v1/student/update/:id`
+- **Method:** `PUT`
+- **Description:** Updates an existing student.
+- **Body Parameters:**
+  - `name` (string): The name of the student.
+  - `roll_no` (string): The roll number of the student.
+  - `fees` (number): The fees of the student.
+  - `medium` (string): The medium of instruction.
+
+#### Delete a student
+
+- **URL:** `/api/v1/student/delete/:id`
+- **Method:** `DELETE`
+- **Description:** Deletes a student by their ID.
+
+## Testing
+
+For testing the API endpoints, Postman was used. You can use Postman to send requests to the API and verify the responses.
+
+## License
+
 This project is licensed under the ISC License.
 
-
-This `README.md` file provides an overview of the project, installation instructions, configuration details, and API endpoints.
 This `README.md` file provides an overview of the project, installation instructions, configuration details, and API endpoints.

@@ -4,6 +4,7 @@ const {
   getStudentByID,
   createStudent,
   updateStudent,
+  deleteStudent,
 } = require("../controllers/studentController");
 
 //router object
@@ -23,4 +24,7 @@ router.post("/create", createStudent);
 //update student || put
 router.put("/update/:id", updateStudent);
 
+
+//delete student || delete
+router.delete("/delete/:id", deleteStudent );
 module.exports = router;

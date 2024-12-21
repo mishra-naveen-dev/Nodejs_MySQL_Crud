@@ -121,7 +121,6 @@ const updateStudent = async (req, res) => {
     res.status(200).send({
       success: true,
       message: "Student Updated Successfully",
-      
     });
   } catch (error) {
     console.log(error);
@@ -133,4 +132,34 @@ const updateStudent = async (req, res) => {
   }
 };
 
-module.exports = { getStudents, getStudentByID, createStudent, updateStudent };
+//delete student
+const deleteStudent = async (req, res) => {
+  try {
+    const studentId = req.params.id;
+    if (!studentId) {
+      return res.status(400).send({
+        success: false,
+        message: "Please provide student ID",
+      });
+    }
+    await db.query("DELETE FROM students WHERE id=?", [studentId]);
+    res.status(200).send({
+      success: true,
+      message: "Student Deleted Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in Delete Student API",
+      error: error.message,
+    });
+  }
+};
+module.exports = {
+  getStudents,
+  getStudentByID,
+  createStudent,
+  updateStudent,
+  deleteStudent,
+};
